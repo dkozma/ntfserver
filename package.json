@@ -3,7 +3,9 @@
   "description": "Network Testing Framework Server",
   "version": "0.0.9",
   "author": "NTF Maintainers <ntf-maintainers@shutterstock.com>",
-  "engines": { "node": ">= 0.6" },
+  "engines": {
+    "node": ">= 0.6"
+  },
   "dependencies": {
     "async": ">= 0.1.10",
     "clean-css": ">= 1.0.0",
@@ -16,13 +18,23 @@
     "uglify-js": ">= 2.2.5"
   },
   "devDependencies": {
-    "nodeunit": ">= 0.6.4"
+    "nodeunit": ">= 0.6.4",
+    "bower": "~1.2.7",
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.9",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.4.1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/shutterstock/ntfserver.git"
   },
-  "scripts": { "install": "make static", "test": "./node_modules/.bin/nodeunit test" },
-  "bugs": { "url": "https://github.com/shutterstock/ntfserver/issues" },
+  "scripts": {
+    "install": "make static",
+    "test": "./node_modules/.bin/nodeunit test"
+  },
+  "bugs": {
+    "url": "https://github.com/shutterstock/ntfserver/issues"
+  },
   "main": "./lib"
 }

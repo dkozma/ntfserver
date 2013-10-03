@@ -1,0 +1,9 @@
+{
+  "name": "ntfserver",
+  "dependencies": {
+    "jquery": "~1.8.0",
+    "bootstrap-css": "~2.3.2",
+    "rickshaw": "~1.1.1",
+    "swig": "git://github.com/paularmstrong/swig.git#0ae7ea4c674b9447ed327832a4270e8f6270ac84"
+  }
+}

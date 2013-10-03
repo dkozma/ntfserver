@@ -12,46 +12,13 @@ build: clean static_setup
 	rm -fr "ntfserver-$(TAG)"
 
 static_setup:
-	rm -fr deps
-	mkdir -p deps
-	# get jquery
-	curl -s http://ajax.googleapis.com/ajax/libs/jquery/$(JQUERY_VERSION)/jquery.min.js > deps/jquery.min.js
-	# get bootstrap
-	curl -s http://getbootstrap.com/2.3.2/assets/bootstrap.zip -o deps/bootstrap.zip
-	cd deps && unzip bootstrap.zip
-	# get d3
-	curl -s https://raw.github.com/shutterstock/rickshaw/$(RICKSHAW_VERSION)/vendor/d3.min.js > deps/d3.min.js
-	curl -s https://raw.github.com/shutterstock/rickshaw/$(RICKSHAW_VERSION)/vendor/d3.layout.min.js > deps/d3.layout.min.js
-	# get rickshaw
-	git clone git://github.com/shutterstock/rickshaw.git deps/rickshaw
-	cd deps/rickshaw && git checkout $(RICKSHAW_VERSION) && make build
-	# get swig
-	curl -s http://paularmstrong.github.com/swig/js/swig.pack.min.js > deps/swig.min.js
-	# build css
-	cat deps/rickshaw/rickshaw.min.css > deps/vendor.css
-	echo >> deps/vendor.css
-	cat deps/bootstrap/css/bootstrap.min.css >> deps/vendor.css
-	# build js
-	cat deps/jquery.min.js > deps/vendor.js
-	echo >> deps/vendor.js
-	cat deps/swig.min.js >> deps/vendor.js
-	echo >> deps/vendor.js
-	cat deps/bootstrap/js/bootstrap.min.js >> deps/vendor.js
-	echo >> deps/vendor.js
-	cat deps/d3.min.js >> deps/vendor.js
-	echo >> deps/vendor.js
-	cat deps/d3.layout.min.js >> deps/vendor.js
-	echo >> deps/vendor.js
-	cat deps/rickshaw/rickshaw.min.js >> deps/vendor.js
-	# copy to static
-	mkdir -p static
-	cp -f deps/vendor.css static/vendor.css
-	cp -f deps/vendor.js static/vendor.js
+	bower install
+	grunt build
 
 static: static_setup
-	rm -fr deps
+	rm -fr deps bower_components
 
 clean:
-	rm -fr deps static/vendor.*
+	rm -fr deps bower_components static/vendor.*
 
 .PHONY: build clean static static_setup
