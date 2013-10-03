@@ -1,5 +1,3 @@
-JQUERY_VERSION=1.7.1
-RICKSHAW_VERSION=3d43dc0fb263c7eee7bfc6020d8b7fd99637c1ab
 TAG=$(shell git tag | PATH="/usr/local/opt/coreutils/libexec/gnubin:$(PATH)" sort --version-sort | tail -n 1)
 
 build: clean static_setup
