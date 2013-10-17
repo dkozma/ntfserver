@@ -22,7 +22,11 @@ function handleStatus() {
 }
 
 function main(load) {
-  swig.init({ filters: shared.filters });
+  for (var filter in shared.filters) {
+    if (shared.filters.hasOwnProperty(filter)) {
+      swig.setFilter(filter, shared.filters[filter]);
+    }
+  }
   if (load) load();
 }
 
